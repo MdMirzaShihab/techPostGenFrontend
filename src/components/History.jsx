@@ -8,8 +8,9 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("/api/posts/history");
-        setHistory(response.data);
+        const response = await axios.get("https://test1.populardiagnostic.org/api/posts/history"); 
+        // Access the payload array and set it to state
+        setHistory(response.data.payload);
       } catch (error) {
         console.error("Error fetching history:", error);
       }
@@ -22,6 +23,7 @@ const History = () => {
     <div className="p-6">
       <h2 className="text-xl text-black font-bold mb-4">Generated Content History</h2>
       <ul>
+        {/* Map through the history array to display each post */}
         {history.map((item) => (
           <li key={item._id} className="p-2 border-b">
             <p>{item.postContent}</p>

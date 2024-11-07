@@ -10,10 +10,13 @@ const Home = () => {
   // Function to generate content from the API
   const generateContent = async () => {
     try {
-      const response = await axios.post("/api/posts/generate");
+      const response = await axios.post("https://test1.populardiagnostic.org/api/posts/generate");
       // Set the generated content from the API
-      setContent(response.data.postContent);
-      console.log("Generated content:", response.data.postContent); // Debug log
+      const postContent = response.data.payload.postContent;
+
+      const contentWithEllipsis = postContent + '...';
+
+    setContent(contentWithEllipsis);
     } catch (error) {
       console.error("Error generating content:", error);
     }
