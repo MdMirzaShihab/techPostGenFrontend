@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { coverImg } from "../assets";
+import { coverImg, HistoryBook } from "../assets";
 
 const NewNothing = () => {
   const defaultText =
@@ -34,14 +34,14 @@ const NewNothing = () => {
         );
         // Slice the array to get the latest 5 posts
         const latestHistory = response.data.payload.slice(0, 5);
-        setHistory(latestHistory); // Set the history state with the latest 5 posts
+        setHistory(latestHistory);
       } catch (error) {
         console.error("Error fetching history:", error);
       }
     };
 
     fetchHistory();
-  }, []);
+  }, [content]);
 
   // Function to copy the content to the clipboard
   const copyToClipboard = () => {
@@ -59,7 +59,7 @@ const NewNothing = () => {
   };
 
   return (
-    <div className=" w-full bg-slate-500 h-full">
+    <div className=" w-full bg-[#d8dce3] h-full">
       <div className="relative bg-yellow-50">
         <div className="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
           <div className="flex items-center flex-wrap px-2 md:px-0">
@@ -68,7 +68,7 @@ const NewNothing = () => {
                 Generate Your Tech Content Here
               </h1>
               <div action="" className="w-full mt-12">
-                <div className="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
+                <div className="relative flex p-1 rounded-3xl bg-white border border-yellow-200 shadow-md md:p-2">
                   <div className="relative p-4">
                     {/* Display the generated content */}
                     <div className="whitespace-pre-wrap">{content}</div>
@@ -77,7 +77,7 @@ const NewNothing = () => {
                     {content && content !== defaultText && (
                       <button
                         onClick={copyToClipboard}
-                        className="absolute bottom-2 right-2 bg-white border-yellow-200 text-yellow-900 p-2 rounded-full hover:bg-blue-500"
+                        className="absolute bottom-2 right-2 bg-white border-yellow-200 text-yellow-900 p-2 rounded-full hover:bg-yellow-300"
                         title="Copy to clipboard">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -93,12 +93,21 @@ const NewNothing = () => {
                   </div>
                   <button
                     onClick={generateContent}
-                    className="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
+                    className="hidden md:block ml-auto py-3 px-6 rounded-3xl text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
                     <span className="hidden text-yellow-900 font-semibold md:block">
                       Generate Content
                     </span>
                   </button>
                 </div>
+              </div>
+              <div className="flex justify-start m-4">
+                <button
+                  onClick={generateContent}
+                  className="md:hidden ml-auto py-3 px-6 rounded-3xl text-xl text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
+                  <span className=" text-yellow-900 font-semibold">
+                    Generate Content
+                  </span>
+                </button>
               </div>
               <p className="mt-8 text-gray-700 lg:w-10/12">
                 To keep your tech page active, we generate new content 24/7 for
@@ -115,22 +124,37 @@ const NewNothing = () => {
           </div>
         </div>
       </div>
-      <div className="w-full">
-      <div className="w-full p-6">
+      <div className="w-full p-10">
         {/* Display latest 5 posts from history */}
-        <h2 className="text-xl text-black font-bold mb-4">Recent History</h2>
-        <ul>
-          {history.map((item) => (
-            <li key={item._id} className="p-2 border-b">
-              <p>{item.postContent}</p>
-              <span className="text-gray-500 text-sm">
-                {new Date(item.createdAt).toLocaleString()}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
+        <h2 className="text-4xl py-10 text-[#2a5ea9] font-bold md:text-center">
+              Recent History
+            </h2>
+        <div className="grid grid-cols-4 gap-6">
+          <div className="col-span-1 hidden md:block">
+            <div className="h-full flex items-center justify-center">
+              <img
+                src={HistoryBook}
+                alt="History Book"
+                className="max-w-[200px] w-full animate-upDown" 
+                style={{ animationDelay: '1000ms' }}
+              />
+            </div>
+          </div>
+          <div className="md:col-span-3 col-span-4 grid grid-rows-5 gap-3 mx-auto">
+            {history.map((item) => (
+              <div key={item._id} className="group">
+              <div className="p-4 transition-transform duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2">
+                <div className="h-full flex items-center justify-center gap-3 p-3">
+                  <span className="text-gray-500 group-hover:text-gray-900 text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 mx-3 rounded-xl text-center my-auto flex-shrink-0 w-2/10">
+                    {new Date(item.createdAt).toLocaleString()}
+                  </span>
+                  <p className="text-gray-700 px-3 mx-3 w-8/10">{item.postContent}</p>
+                </div>
+              </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

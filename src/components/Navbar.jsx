@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full z-30 top-10 py-1 bg-white shadow-lg border-b border-blue-400">
+    <nav className="w-full z-30 sticky top-0 py-1 bg-white shadow-lg border-b border-yellow-400">
       <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
         {/* Menu toggle button for mobile */}
         <button
@@ -36,11 +36,11 @@ const Navbar = () => {
           id="menu"
         >
           <nav>
-            <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+            <ul className="md:flex items-center justify-between text-base text-[#5496db] pt-4 md:pt-0">
               <li>
                 <Link
                   to="/"
-                  className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                  className="inline-block no-underline hover:text-yellow-900 font-medium text-lg py-2 px-4 lg:-ml-2"
                 >
                   Tech Post Generator
                 </Link>
@@ -48,9 +48,9 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/history"
-                  className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                  className="inline-block no-underline hover:text-yellow-900 font-medium text-lg py-2 px-4 lg:-ml-2"
                 >
-                  Content History
+                  All Content History
                 </Link>
               </li>
             </ul>
@@ -67,7 +67,7 @@ const Navbar = () => {
             <button className="bg-transparent text-gray-800 p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700 opacity-50 cursor-not-allowed" style={{ pointerEvents: "none" }}>
               Sign in
             </button>
-            <button className="bg-blue-600 text-gray-200 p-2 rounded hover:bg-blue-500 hover:text-gray-100 opacity-50 cursor-not-allowed" style={{ pointerEvents: "none" }}>
+            <button className="bg-[#5496db] text-gray-200 p-2 rounded hover:bg-blue-500 hover:text-gray-100 opacity-50 cursor-not-allowed" style={{ pointerEvents: "none" }}>
               Sign up
             </button>
           </div>

@@ -16,8 +16,12 @@ export default {
       animation: {
         upDown: 'upDown 3s ease-in-out infinite',
       },
+      animationDelay: {
+        '200': '200ms',
+        '500': '500ms',
+        '1000': '1000ms',
+      },
     },
   },
   plugins: [],
 }
-
