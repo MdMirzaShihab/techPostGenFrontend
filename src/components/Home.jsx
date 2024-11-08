@@ -143,7 +143,7 @@ const NewNothing = () => {
           <div className="md:col-span-3 col-span-4 grid grid-rows-5 gap-3 mx-auto">
             {history.map((item) => (
               <div key={item._id} className="group">
-                <div className="p-4 transition-transform duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2">
+                <div className="p-4 transition-all duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2">
                   <div className="w-full flex flex-col-reverse md:flex-row gap-3 p-3">
                     <span className="text-gray-500 group-hover:text-gray-900 text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 mx-3 rounded-xl text-center my-auto flex-shrink-0 w-2/10">
                       {new Date(item.createdAt).toLocaleString()}
