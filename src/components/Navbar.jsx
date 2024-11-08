@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { HomeIcon } from "../assets";
 
 const Navbar = () => {
   // State to handle mobile menu visibility
@@ -13,6 +14,12 @@ const Navbar = () => {
   return (
     <nav className="w-full z-30 sticky top-0 py-1 bg-white shadow-lg border-b border-yellow-400">
       <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
+        {/* Logo Section (HomeIcon at the start) */}
+        <div className="hidden md:block">
+          <Link to="/" className="flex items-center">
+            <img src={HomeIcon} alt="Home" className="h-12 w-12" /> {/* Adjust size as needed */}
+          </Link>
+        </div>
         {/* Menu toggle button for mobile */}
         <button
           className="cursor-pointer md:hidden block"
@@ -29,7 +36,6 @@ const Navbar = () => {
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
         </button>
-
         {/* Menu items for desktop */}
         <div
           className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1"
@@ -42,7 +48,7 @@ const Navbar = () => {
                   to="/"
                   className="inline-block no-underline hover:text-yellow-900 font-medium text-lg py-2 px-4 lg:-ml-2"
                 >
-                  Tech Post Generator
+                  Post Generator
                 </Link>
               </li>
               <li>

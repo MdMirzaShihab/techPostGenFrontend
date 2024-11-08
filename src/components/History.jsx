@@ -27,13 +27,10 @@ const History = () => {
         {history.map((item) => (
           <div key={item._id} className="group">
           <div className="p-4 transition-transform duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2 flex">
-            <div className="flex w-full gap-3">
-              {/* Created At Section (2/10 width) */}
-              <span className="text-gray-500 group-hover:text-gray-900 text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 rounded group-hover:rounded-2xl group-hover:scale-110 text-center my-auto flex-shrink-0 w-2/10">
+            <div className="flex flex-col-reverse md:flex-row w-full gap-3">
+              <span className="text-gray-500 group-hover:text-gray-900  text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 rounded group-hover:rounded-2xl md:group-hover:scale-110 text-center my-auto flex-shrink-0 w-2/10">
                 {new Date(item.createdAt).toLocaleString()}
               </span>
-              
-              {/* Post Content Section (8/10 width) */}
               <p className="text-gray-700 px-3 w-8/10 flex-grow">
                 {item.postContent}
               </p>

@@ -65,7 +65,7 @@ const NewNothing = () => {
           <div className="flex items-center flex-wrap px-2 md:px-0">
             <div className="relative lg:w-6/12 lg:py-24 xl:py-32">
               <h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">
-                Generate Your Tech Content Here
+                AI-Powered Tech Posts at Your Fingertips
               </h1>
               <div action="" className="w-full mt-12">
                 <div className="relative flex p-1 rounded-3xl bg-white border border-yellow-200 shadow-md md:p-2">
@@ -110,8 +110,8 @@ const NewNothing = () => {
                 </button>
               </div>
               <p className="mt-8 text-gray-700 lg:w-10/12">
-                To keep your tech page active, we generate new content 24/7 for
-                you.
+                Stay ahead in the tech world with auto-generated, timely posts
+                for your social media – no effort, just results!
               </p>
             </div>
             <div className="ml-auto -mb-24 lg:-mb-56 lg:w-6/12">
@@ -127,30 +127,32 @@ const NewNothing = () => {
       <div className="w-full p-10">
         {/* Display latest 5 posts from history */}
         <h2 className="text-4xl py-10 text-[#2a5ea9] font-bold md:text-center">
-              Recent History
-            </h2>
+          Recent History
+        </h2>
         <div className="grid grid-cols-4 gap-6">
           <div className="col-span-1 hidden md:block">
             <div className="h-full flex items-center justify-center">
               <img
                 src={HistoryBook}
                 alt="History Book"
-                className="max-w-[200px] w-full animate-upDown" 
-                style={{ animationDelay: '1000ms' }}
+                className="max-w-[200px] w-full animate-upDown"
+                style={{ animationDelay: "1000ms" }}
               />
             </div>
           </div>
           <div className="md:col-span-3 col-span-4 grid grid-rows-5 gap-3 mx-auto">
             {history.map((item) => (
               <div key={item._id} className="group">
-              <div className="p-4 transition-transform duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2">
-                <div className="h-full flex items-center justify-center gap-3 p-3">
-                  <span className="text-gray-500 group-hover:text-gray-900 text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 mx-3 rounded-xl text-center my-auto flex-shrink-0 w-2/10">
-                    {new Date(item.createdAt).toLocaleString()}
-                  </span>
-                  <p className="text-gray-700 px-3 mx-3 w-8/10">{item.postContent}</p>
+                <div className="p-4 transition-transform duration-700 transform bg-gray-200 group-hover:bg-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl cursor-context-menu hover:-translate-y-2">
+                  <div className="w-full flex flex-col-reverse md:flex-row gap-3 p-3">
+                    <span className="text-gray-500 group-hover:text-gray-900 text-sm bg-gray-300 group-hover:bg-yellow-300 p-3 mx-3 rounded-xl text-center my-auto flex-shrink-0 w-2/10">
+                      {new Date(item.createdAt).toLocaleString()}
+                    </span>
+                    <p className="text-gray-700 px-3 mx-3 w-8/10">
+                      {item.postContent}
+                    </p>
+                  </div>
                 </div>
-              </div>
               </div>
             ))}
           </div>
