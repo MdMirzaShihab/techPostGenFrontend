@@ -24,7 +24,7 @@ const Navbar = () => {
   // Handle logout
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3001/api/auth/logout", {}, { withCredentials: true });
+      await axios.post("https://test1.populardiagnostic.org/api/auth/logout", {}, { withCredentials: true });
       setIsAuthenticated(false);  // Update the context state
       navigate("/login"); // Redirect to login after logout
     } catch (error) {

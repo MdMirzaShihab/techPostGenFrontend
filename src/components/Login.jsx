@@ -14,7 +14,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/api/auth/login", { email, password },
+      const response = await axios.post("https://test1.populardiagnostic.org/api/auth/login", { email, password },
         { withCredentials: true });
       // Store the token in localStorage or any other appropriate place
       localStorage.setItem("token", response.data.token);
