@@ -1,30 +1,33 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";  // Using React Router for navigation
-import { coverImg } from "../assets";
+import { LoginImg } from "../assets";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://test1.populardiagnostic.org/api/auth/login", { email, password });
+      const response = await axios.post("http://localhost:3001/api/auth/login", { email, password },
+        { withCredentials: true });
       // Store the token in localStorage or any other appropriate place
       localStorage.setItem("token", response.data.token);
-      navigate("/home");  // Redirect to home page upon successful login
+      setIsAuthenticated(true);
+      navigate("/");  // Redirect to home page upon successful login
     } catch (error) {
       setErrorMessage("Invalid credentials. Please try again.", error);
     }
   };
 
   return (
-    <div className="w-full bg-[#d8dce3] h-full">
-      <div className="relative bg-yellow-50">
-        <div className="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
+      <div className=" w-full bg-yellow-50 h-screen">
+        <div className="relative container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
           <div className="flex items-center flex-wrap px-2 md:px-0">
             <div className="relative lg:w-6/12 lg:py-24 xl:py-32">
               <h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">
@@ -77,17 +80,17 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <div className="ml-auto -mb-24 lg:-mb-56 lg:w-6/12">
+            <div className="ml-auto hidden lg:block lg:w-6/12">
               <img
-                src={coverImg}
+                src={LoginImg}
                 alt="Cover tech image"
-                className="animate-upDown"
+                className="max-w-[500px] animate-upDown mx-auto"
               />
             </div>
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 };
 

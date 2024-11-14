@@ -33,7 +33,7 @@ const Signup = () => {
   return (
     <div className="w-full bg-[#d8dce3] h-full">
       <div className="relative bg-yellow-50">
-        <div className="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
+        <div className="container m-auto px-6 pt-24 md:px-12 lg:pt-2 lg:px-7">
           <div className="flex items-center flex-wrap px-2 md:px-0">
             <div className="relative w-full lg:w-6/12 lg:py-24 xl:py-32">
               <h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">
@@ -124,11 +124,11 @@ const Signup = () => {
                 </button>
               </div>
             </div>
-            <div className="ml-auto hidden md:block lg:w-6/12">
+            <div className="ml-auto hidden lg:block lg:w-6/12">
               <img
                 src={Register}
                 alt="Register image"
-                className="max-w-[300px] animate-upDown mx-auto"
+                className="max-w-[500px] animate-upDown mx-auto"
               />
             </div>
           </div>
