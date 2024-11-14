@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { coverImg, HistoryBook } from "../assets";
 
-const NewNothing = () => {
+const Home = () => {
   const defaultText =
     "Hit 'Generate Content', sit back and relax, – Your masterpiece content is just a click away! ✨";
   // Initial state for content with default text
@@ -162,4 +162,4 @@ const NewNothing = () => {
   );
 };
 
-export default NewNothing;
+export default Home;

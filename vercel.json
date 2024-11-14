@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/history",
+      "dest": "/"
+    },
+    {
+      "src": "/signup",
+      "dest": "/"
+    },
+    {
+      "src": "/login",
+      "dest": "/"
+    }  ,
+    {
+      "src": "*",
+      "dest": "/"
+    }  
+  ]
+  
+}
